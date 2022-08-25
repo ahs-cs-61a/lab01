@@ -1,3 +1,7 @@
+from operator import add, sub
+
+# lab01: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab01/
+
 def falling(n, k):
     """Compute the falling factorial of n to depth k.
 
@@ -45,3 +49,170 @@ def double_eights(n):
     False
     """
     "*** YOUR CODE HERE ***"
+
+# disc01: https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc01/
+    
+def wears_jacket_with_if(temp, raining):
+    """
+    >>> wears_jacket_with_if(90, False)
+    False
+    >>> wears_jacket_with_if(40, False)
+    True
+    >>> wears_jacket_with_if(100, True)
+    True
+    """
+    "*** YOUR CODE HERE ***"
+    
+    
+def is_prime(n):
+    """
+    >>> is_prime(10)
+    False
+    >>> is_prime(7)
+    True
+    >>> is_prime(1) # one is not a prime number!!
+    False
+    """
+    "*** YOUR CODE HERE ***"
+
+
+def fizzbuzz(n):
+    """
+    >>> result = fizzbuzz(16)
+    1
+    2
+    fizz
+    4
+    buzz
+    fizz
+    7
+    8
+    fizz
+    buzz
+    11
+    fizz
+    13
+    14
+    fizzbuzz
+    16
+    >>> result is None  # No return value
+    True
+    """
+    "*** YOUR CODE HERE ***"
+    
+
+def unique_digits(n):
+    """Return the number of unique digits in positive integer n.
+
+    >>> unique_digits(8675309) # All are unique
+    7
+    >>> unique_digits(1313131) # 1 and 3
+    2
+    >>> unique_digits(13173131) # 1, 3, and 7
+    3
+    >>> unique_digits(10000) # 0 and 1
+    2
+    >>> unique_digits(101) # 0 and 1
+    2
+    >>> unique_digits(10) # 0 and 1
+    2
+    """
+    "*** YOUR CODE HERE ***"
+
+def has_digit(n, k):
+    """Returns whether K is a digit in N.
+    >>> has_digit(10, 1)
+    True
+    >>> has_digit(12, 7)
+    False
+    """
+    "*** YOUR CODE HERE ***"
+
+    "*** YOUR CODE HERE ***"
+    
+
+# hw01: https://inst.eecs.berkeley.edu/~cs61a/su22/hw/hw01/
+
+def a_plus_abs_b(a, b):
+    """Return a+abs(b), but without calling abs.
+
+    >>> a_plus_abs_b(2, 3)
+    5
+    >>> a_plus_abs_b(2, -3)
+    5
+    >>> a_plus_abs_b(-1, 4)
+    3
+    >>> a_plus_abs_b(-1, -4)
+    3
+    """
+    if b < 0:
+        f = _____
+    else:
+        f = _____
+    return f(a, b)
+
+
+def a_plus_abs_b_syntax_check():
+    """Check that you didn't change the return statement of a_plus_abs_b.
+
+    >>> # You aren't expected to understand the code of this test.
+    >>> import inspect, re
+    >>> re.findall(r'^\s*(return .*)', inspect.getsource(a_plus_abs_b), re.M)
+    ['return f(a, b)']
+    """
+    # You don't need to edit this function. It's just here to check your work.
+
+
+def two_of_three(i, j, k):
+    """Return m*m + n*n, where m and n are the two smallest members of the
+    positive numbers i, j, and k.
+
+    >>> two_of_three(1, 2, 3)
+    5
+    >>> two_of_three(5, 3, 1)
+    10
+    >>> two_of_three(10, 2, 8)
+    68
+    >>> two_of_three(5, 5, 5)
+    50
+    """
+    return _____
+
+
+def largest_factor(n):
+    """Return the largest factor of n that is smaller than n.
+
+    >>> largest_factor(15) # factors are 1, 3, 5
+    5
+    >>> largest_factor(80) # factors are 1, 2, 4, 5, 8, 10, 16, 20, 40
+    40
+    >>> largest_factor(13) # factor is 1 since 13 is prime
+    1
+    """
+    "*** YOUR CODE HERE ***"
+
+
+def hailstone(n):
+    """Print the hailstone sequence starting at n and return its
+    length.
+
+    >>> a = hailstone(10)
+    10
+    5
+    16
+    8
+    4
+    2
+    1
+    >>> a
+    7
+    >>> b = hailstone(1)
+    1
+    >>> b
+    1
+    """
+    "*** YOUR CODE HERE ***"
+    
+    
+    
+  
