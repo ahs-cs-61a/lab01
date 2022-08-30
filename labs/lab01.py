@@ -146,9 +146,9 @@ def a_plus_abs_b(a, b): #q9
     3
     """
     if b < 0:
-        f = # one liner
+        f = None # one liner, replace this None with your code (None is here to avoid compile errors)
     else:
-        f = # one liner
+        f = # one liner, replace this None with your code (None is here to avoid compile errors)
     return f(a, b)
 
 
