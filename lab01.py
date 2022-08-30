@@ -146,9 +146,9 @@ def a_plus_abs_b(a, b): #q9
     3
     """
     if b < 0:
-        f = _____
+        f = # one liner
     else:
-        f = _____
+        f = # one liner
     return f(a, b)
 
 
@@ -165,7 +165,7 @@ def two_of_three(i, j, k): #q10
     >>> two_of_three(5, 5, 5)
     50
     """
-    return _____
+    return # one liner
 
 
 def largest_factor(n): #q11
