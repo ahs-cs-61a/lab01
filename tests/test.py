@@ -32,6 +32,11 @@ def test_is_prime():
 def test_fizzbuzz(): 
     assert lab.fizzbuzz(16) is None
 
+def test_has_digit():
+    assert lab.has_digit(10, 1) == True
+    assert lab.has_digit(12, 7) == False
+    assert lab.has_digit(4, 4) == True
+    
 def test_unique_digits(): 
     assert lab.unique_digits(8675309) == 7
     assert lab.unique_digits(1313131) == 2
@@ -39,11 +44,6 @@ def test_unique_digits():
     assert lab.unique_digits(10000) == 2
     assert lab.unique_digits(101) == 2
     assert lab.unique_digits(10) == 2
-
-def test_has_digit():
-    assert lab.has_digit(10, 1) == True
-    assert lab.has_digit(12, 7) == False
-    assert lab.has_digit(4, 4) == True
 
 def test_a_plus_abs_b(): 
     assert lab.a_plus_abs_b(2, 3) == 5
