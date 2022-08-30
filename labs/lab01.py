@@ -100,8 +100,17 @@ def fizzbuzz(n): #q6
     """
     "*** YOUR CODE HERE ***"
     
-
-def unique_digits(n): #q7
+    
+def has_digit(n, k): #q7
+    >>> has_digit(10, 1)
+    True
+    >>> has_digit(12, 7)
+    False
+    """
+    "*** YOUR CODE HERE ***"
+    
+    
+def unique_digits(n): #q8, use has_digit
     """Return the number of unique digits in positive integer n.
 
     >>> unique_digits(8675309) # All are unique
@@ -117,17 +126,6 @@ def unique_digits(n): #q7
     >>> unique_digits(10) # 0 and 1
     2
     """
-    "*** YOUR CODE HERE ***"
-
-def has_digit(n, k): #q8, use unique_digits
-    """Returns whether K is a digit in N.
-    >>> has_digit(10, 1)
-    True
-    >>> has_digit(12, 7)
-    False
-    """
-    "*** YOUR CODE HERE ***"
-
     "*** YOUR CODE HERE ***"
     
 
