@@ -102,6 +102,7 @@ def fizzbuzz(n): #q6
     
     
 def has_digit(n, k): #q7
+    """
     >>> has_digit(10, 1)
     True
     >>> has_digit(12, 7)
@@ -146,7 +147,7 @@ def a_plus_abs_b(a, b): #q9
     if b < 0:
         f = None # one liner, replace this None with your code (None is here to avoid compile errors)
     else:
-        f = # one liner, replace this None with your code (None is here to avoid compile errors)
+        f = None # one liner, replace this None with your code (None is here to avoid compile errors)
     return f(a, b)
 
 
@@ -199,7 +200,3 @@ def hailstone(n): #q12
     1
     """
     "*** YOUR CODE HERE ***"
-    
-    
-    
-  
