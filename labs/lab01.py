@@ -1,8 +1,11 @@
+# lab01
+
 from operator import add, sub
 
 # lab01: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab01/
 
-def falling(n, k): 
+
+def falling(n, k):
     """Compute the falling factorial of n to depth k.
 
     >>> falling(6, 3)  # 6 * 5 * 4
@@ -17,7 +20,8 @@ def falling(n, k):
     "*** YOUR CODE HERE ***"
     return 2
 
-def sum_digits(y): 
+
+def sum_digits(y):
     """Sum all the digits of y.
 
     >>> sum_digits(10) # 1 + 0 = 1
@@ -33,7 +37,7 @@ def sum_digits(y):
     "*** YOUR CODE HERE ***"
 
 
-def double_eights(n): 
+def double_eights(n):
     """Return true if n has two eights in a row.
     >>> double_eights(8)
     False
@@ -50,9 +54,11 @@ def double_eights(n):
     """
     "*** YOUR CODE HERE ***"
 
+
 # disc01: https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc01/
-    
-def wears_jacket_with_if(temp, raining): 
+
+
+def wears_jacket_with_if(temp, raining):
     """
     >>> wears_jacket_with_if(90, False)
     False
@@ -62,9 +68,9 @@ def wears_jacket_with_if(temp, raining):
     True
     """
     "*** YOUR CODE HERE ***"
-    
-    
-def is_prime(n): 
+
+
+def is_prime(n):
     """
     >>> is_prime(10)
     False
@@ -76,7 +82,7 @@ def is_prime(n):
     "*** YOUR CODE HERE ***"
 
 
-def fizzbuzz(n): 
+def fizzbuzz(n):
     """
     >>> result = fizzbuzz(16)
     1
@@ -99,9 +105,9 @@ def fizzbuzz(n):
     True
     """
     "*** YOUR CODE HERE ***"
-    
-    
-def has_digit(n, k): 
+
+
+def has_digit(n, k):
     """
     >>> has_digit(10, 1)
     True
@@ -109,8 +115,9 @@ def has_digit(n, k):
     False
     """
     "*** YOUR CODE HERE ***"
-    
-def unique_digits(n): # use has_digit
+
+
+def unique_digits(n):  # use has_digit
     """Return the number of unique digits in positive integer n.
 
     >>> unique_digits(8675309) # All are unique
@@ -127,11 +134,12 @@ def unique_digits(n): # use has_digit
     2
     """
     "*** YOUR CODE HERE ***"
-    
+
 
 # hw01: https://inst.eecs.berkeley.edu/~cs61a/su22/hw/hw01/
 
-def a_plus_abs_b(a, b): 
+
+def a_plus_abs_b(a, b):
     """Return a+abs(b), but without calling abs.
 
     >>> a_plus_abs_b(2, 3)
@@ -144,13 +152,13 @@ def a_plus_abs_b(a, b):
     3
     """
     if b < 0:
-        f = None # one liner, replace this None with your code (None is here to avoid compile errors)
+        f = None  # one liner, replace this None with your code (None is here to avoid compile errors)
     else:
-        f = None # one liner, replace this None with your code (None is here to avoid compile errors)
+        f = None  # one liner, replace this None with your code (None is here to avoid compile errors)
     return f(a, b)
 
 
-def two_of_three(i, j, k): 
+def two_of_three(i, j, k):
     """Return m*m + n*n, where m and n are the two smallest members of the
     positive numbers i, j, and k.
 
@@ -163,10 +171,10 @@ def two_of_three(i, j, k):
     >>> two_of_three(5, 5, 5)
     50
     """
-    return # one liner
+    return  # one liner
 
 
-def largest_factor(n): 
+def largest_factor(n):
     """Return the largest factor of n that is smaller than n.
 
     >>> largest_factor(15) # factors are 1, 3, 5
@@ -179,7 +187,7 @@ def largest_factor(n):
     "*** YOUR CODE HERE ***"
 
 
-def hailstone(n): 
+def hailstone(n):
     """Print the hailstone sequence starting at n and return its
     length.
 
