@@ -18,7 +18,7 @@ def falling(n, k):
     1
     """
     "*** YOUR CODE HERE ***"
-    return 2
+
 
 
 def sum_digits(y):
