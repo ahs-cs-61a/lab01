@@ -1,12 +1,11 @@
 from labs.lab01 import *
 from labs.lab01_wwpd import * 
 
-# exec(open("main.py").read())
-# hailstone(10)
+# WWPD questions:  
+# un-comment one-by-one and complete question set
+
 # wwpd_control()
-
-# import labs.lab01 as ex
-# import labs.lab01_wwpd as exw
-
-# ex.hailstone(10)
-# exw.wwpd_control()
+# wwpd_booleans()
+# wwpd_what_if()
+# wwpd_case_conundrum()
+# wwpd_square_so_slow()
