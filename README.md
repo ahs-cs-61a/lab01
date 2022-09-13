@@ -13,6 +13,10 @@ lecture slides:
 - functions slides: https://docs.google.com/presentation/d/172UPPqyyABUpZTgpI0tmrcwkFeNx8KcV_5pKJtTnZm8/edit?usp=sharing
 - control slides: https://inst.eecs.berkeley.edu/~cs61a/su22/assets/slides/03-Control.pdf
   
+optional lecture recordings:
+- functions: https://www.youtube.com/playlist?list=PLx38hZJ5RLZdLilndcPoBVWg20S_VENyu
+- control: https://www.youtube.com/playlist?list=PLx38hZJ5RLZeMF2XEtgC7PxsbTi_wEMry
+  
 reminders: 
   
 - make sure your Github lab repository is public to be able to import into Replit
