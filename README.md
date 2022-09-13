@@ -10,8 +10,8 @@ this assignment merges problems from lab01, disc01, and hw01 into one; refer to 
   
 lecture slides: 
   
-- functions slides: https://docs.google.com/presentation/d/172UPPqyyABUpZTgpI0tmrcwkFeNx8KcV_5pKJtTnZm8/edit?usp=sharing
-- control slides: https://inst.eecs.berkeley.edu/~cs61a/su22/assets/slides/03-Control.pdf
+- functions: https://docs.google.com/presentation/d/172UPPqyyABUpZTgpI0tmrcwkFeNx8KcV_5pKJtTnZm8/edit?usp=sharing
+- control: https://inst.eecs.berkeley.edu/~cs61a/su22/assets/slides/03-Control.pdf
   
 optional lecture recordings:
 - functions: https://www.youtube.com/playlist?list=PLx38hZJ5RLZdLilndcPoBVWg20S_VENyu
