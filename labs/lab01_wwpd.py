@@ -253,7 +253,7 @@ def wwpd_booleans():  # wwpd_booleans
     print(">>> True or 1 / 0 or False")
     x = input()
     while x != str(True or 1 / 0 or False):
-        repeat()
+        x = repeat()
 
     print(">>> True or 0")
     x = input()
@@ -376,7 +376,7 @@ def wwpd_square_so_slow():  # wwpd_square_so_slow
 
     print(">>> square(so_slow(5))")
     x = input()
-    while x != "here":
+    while x != "here!":
         x = repeat()
 
     x = input()

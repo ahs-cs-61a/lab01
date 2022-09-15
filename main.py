@@ -1,8 +1,8 @@
 from labs.lab01 import *
 from labs.lab01_wwpd import * 
 
-# exec(open("main.py").read())
-# hailstone(10)
+exec(open("main.py").read())
+hailstone(10)
 # wwpd_control()
 
 # import labs.lab01 as ex
