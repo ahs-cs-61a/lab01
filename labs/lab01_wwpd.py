@@ -13,7 +13,7 @@ def repeat():
 def intro():
     print("What Would Python Display?")
     print(
-        "type the expected output, 'function', 'infinite loop', or 'error'; use single quotes '' when needed\n"
+        "type the expected output, 'function' if you think the answer is a function object, 'infinite loop' if it loops forever, 'nothing' if nothing is displayed, or 'error' if it errors; use single quotes '' when needed\n"
     )
 
 
