@@ -2,64 +2,11 @@
 
 from operator import add, sub
 
-# lab01: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab01/
-
-
-def falling(n, k): # q1
-    """Compute the falling factorial of n to depth k.
-
-    >>> falling(6, 3)  # 6 * 5 * 4
-    120
-    >>> falling(4, 3)  # 4 * 3 * 2
-    24
-    >>> falling(4, 1)  # 4
-    4
-    >>> falling(4, 0)
-    1
-    """
-    "*** YOUR CODE HERE ***"
-
-
-
-def sum_digits(y): # q2
-    """Sum all the digits of y.
-
-    >>> sum_digits(10) # 1 + 0 = 1
-    1
-    >>> sum_digits(4224) # 4 + 2 + 2 + 4 = 12
-    12
-    >>> sum_digits(1234567890)
-    45
-    >>> a = sum_digits(123) # make sure that you are using return rather than print
-    >>> a
-    6
-    """
-    "*** YOUR CODE HERE ***"
-
-
-def double_eights(n): # q3
-    """Return true if n has two eights in a row.
-    >>> double_eights(8)
-    False
-    >>> double_eights(88)
-    True
-    >>> double_eights(2882)
-    True
-    >>> double_eights(880088)
-    True
-    >>> double_eights(12345)
-    False
-    >>> double_eights(80808080)
-    False
-    """
-    "*** YOUR CODE HERE ***"
-    
-
 
 # disc01: https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc01/
 
 
-def wears_jacket_with_if(temp, raining): # q4
+def wears_jacket_with_if(temp, raining):  # q1
     """
     >>> wears_jacket_with_if(90, False)
     False
@@ -71,7 +18,7 @@ def wears_jacket_with_if(temp, raining): # q4
     "*** YOUR CODE HERE ***"
 
 
-def is_prime(n): # q5
+def is_prime(n):  # q2
     """
     >>> is_prime(10)
     False
@@ -83,7 +30,7 @@ def is_prime(n): # q5
     "*** YOUR CODE HERE ***"
 
 
-def fizzbuzz(n): # q6
+def fizzbuzz(n):  # q3
     """
     >>> result = fizzbuzz(16)
     1
@@ -108,7 +55,7 @@ def fizzbuzz(n): # q6
     "*** YOUR CODE HERE ***"
 
 
-def has_digit(n, k): # q7
+def has_digit(n, k):  # q4
     """
     >>> has_digit(10, 1)
     True
@@ -118,7 +65,7 @@ def has_digit(n, k): # q7
     "*** YOUR CODE HERE ***"
 
 
-def unique_digits(n):  # q8, use has_digit
+def unique_digits(n):  # q5, use has_digit
     """Return the number of unique digits in positive integer n.
 
     >>> unique_digits(8675309) # All are unique
@@ -137,10 +84,62 @@ def unique_digits(n):  # q8, use has_digit
     "*** YOUR CODE HERE ***"
 
 
+# lab01: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab01/
+
+
+def falling(n, k):  # q6
+    """Compute the falling factorial of n to depth k.
+
+    >>> falling(6, 3)  # 6 * 5 * 4
+    120
+    >>> falling(4, 3)  # 4 * 3 * 2
+    24
+    >>> falling(4, 1)  # 4
+    4
+    >>> falling(4, 0)
+    1
+    """
+    "*** YOUR CODE HERE ***"
+
+
+def sum_digits(y):  # q7
+    """Sum all the digits of y.
+
+    >>> sum_digits(10) # 1 + 0 = 1
+    1
+    >>> sum_digits(4224) # 4 + 2 + 2 + 4 = 12
+    12
+    >>> sum_digits(1234567890)
+    45
+    >>> a = sum_digits(123) # make sure that you are using return rather than print
+    >>> a
+    6
+    """
+    "*** YOUR CODE HERE ***"
+
+
+def double_eights(n):  # q8
+    """Return true if n has two eights in a row.
+    >>> double_eights(8)
+    False
+    >>> double_eights(88)
+    True
+    >>> double_eights(2882)
+    True
+    >>> double_eights(880088)
+    True
+    >>> double_eights(12345)
+    False
+    >>> double_eights(80808080)
+    False
+    """
+    "*** YOUR CODE HERE ***"
+
+
 # hw01: https://inst.eecs.berkeley.edu/~cs61a/su22/hw/hw01/
 
 
-def a_plus_abs_b(a, b): # q9
+def a_plus_abs_b(a, b):  # q9
     """Return a+abs(b), but without calling abs.
 
     >>> a_plus_abs_b(2, 3)
@@ -159,7 +158,7 @@ def a_plus_abs_b(a, b): # q9
     return f(a, b)
 
 
-def two_of_three(i, j, k): # q10
+def two_of_three(i, j, k):  # q10
     """Return m*m + n*n, where m and n are the two smallest members of the
     positive numbers i, j, and k.
 
@@ -175,7 +174,7 @@ def two_of_three(i, j, k): # q10
     return  # one liner
 
 
-def largest_factor(n): # q11
+def largest_factor(n):  # q11
     """Return the largest factor of n that is smaller than n.
 
     >>> largest_factor(15) # factors are 1, 3, 5
@@ -188,7 +187,7 @@ def largest_factor(n): # q11
     "*** YOUR CODE HERE ***"
 
 
-def hailstone(n): # q12
+def hailstone(n):  # q12
     """Print the hailstone sequence starting at n and return its
     length.
 
