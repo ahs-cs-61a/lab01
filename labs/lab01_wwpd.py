@@ -1,4 +1,4 @@
-# lab01 wwpd
+# lab01 WWPD?
 
 import inspect
 
@@ -375,10 +375,6 @@ def wwpd_square_so_slow():  # wwpd_square_so_slow
     print("\n", inspect.getsource(so_slow))
 
     print(">>> square(so_slow(5))")
-    x = input()
-    while x != "here!":
-        x = repeat()
-
     x = input()
     while x != "infinite loop":
         x = repeat()
