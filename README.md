@@ -26,4 +26,4 @@ reminders:
 - for all tests: ```python3 -m pytest tests/test.py```
 - refer to lab00 setup description for help
 - everything is run in Shell, not Console!
-- push to GitHub and submit turn-in in GradeScope
+- don't forget to push to GitHub and submit turn-in in GradeScope
