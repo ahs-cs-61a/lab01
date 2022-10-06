@@ -25,5 +25,4 @@ reminders:
 - for individual tests: ```python3 -m pytest tests/test.py -k test_name_of_function```
 - for all tests: ```python3 -m pytest tests/test.py```
 - refer to lab00 setup description for help
-- everything is run in Shell, not Console!
 - don't forget to push to GitHub and submit turn-in in GradeScope
