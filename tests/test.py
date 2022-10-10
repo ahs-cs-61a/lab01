@@ -38,7 +38,8 @@ def test_is_prime():
 
 
 def test_fizzbuzz():
-    assert lab.fizzbuzz(16) is None
+    print("\n\nfizzbuzz prints:")
+    assert lab.fizzbuzz(16) is None # print, don't return
 
 
 def test_has_digit():
