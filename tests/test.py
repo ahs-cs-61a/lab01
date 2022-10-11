@@ -97,5 +97,18 @@ def test_largest_factor():
 
 
 def test_hailstone():
+    print("\n\nhailstone(10) prints:")
+    with Capturing() as hailstone_10_output:
+        lab.hailstone(10)
+    hailstone_10 = ['10', '5', '16', '8', '4', '2', '1']
+    for i in range(len(hailstone_10)):
+        assert hailstone_10[i] == hailstone_10_output[i] # incorrect prints
     assert lab.hailstone(10) == 7
+    
+    print("\n\nhailstone(1) prints:")
+    with Capturing() as hailstone_1_output:
+        lab.hailstone(1)
+    hailstone_1 = ['1']
+    for i in range(len(hailstone_1)):
+        assert hailstone_1[i] == hailstone_1_output[i] # incorrect prints
     assert lab.hailstone(1) == 1
