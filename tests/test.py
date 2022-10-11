@@ -1,6 +1,20 @@
 # lab01 tests
 
 import labs.lab01 as lab
+from io import StringIO 
+import sys
+
+
+# capturing prints (stdout)
+class Capturing(list):
+    def __enter__(self):
+        self._stdout = sys.stdout
+        sys.stdout = self._stringio = StringIO()
+        return self
+    def __exit__(self, *args):
+        self.extend(self._stringio.getvalue().splitlines())
+        del self._stringio
+        sys.stdout = self._stdout
 
 
 def test_falling():
@@ -38,7 +52,12 @@ def test_is_prime():
 
 
 def test_fizzbuzz():
-    print("\n\nfizzbuzz prints:")
+    print("\n\nfizzbuzz(16) prints:")
+    with Capturing() as fizzbuzz_16_output:
+        lab.fizzbuzz(16)
+    fizzbuzz_16 = ['1', '2', 'fizz', '4', 'buzz', 'fizz', '7', '8', 'fizz', 'buzz', '11', 'fizz', '13', '14', 'fizzbuzz', '16']
+    for i in range(len(fizzbuzz_16)):
+        assert fizzbuzz_16[i] == fizzbuzz_16_output[i]
     assert lab.fizzbuzz(16) is None # print, don't return
 
 
