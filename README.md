@@ -2,10 +2,10 @@
   
 this assignment will be on Python variables, functions, and control (if statements, and/or, loops, etc.)
   
-this assignment merges problems from lab01, disc01, and hw01 into one; refer to these links for problem descriptions and requirements:
+this assignment merges problems from disc01, lab01, and hw01 into one; refer to these links for problem descriptions and requirements:
   
-- lab01: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab01/
 - disc01: https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc01/
+- lab01: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab01/
 - hw01: https://inst.eecs.berkeley.edu/~cs61a/su22/hw/hw01/
   
 lecture slides: 
