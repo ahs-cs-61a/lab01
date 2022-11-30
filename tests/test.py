@@ -3,7 +3,10 @@
 import labs.lab01 as lab
 from io import StringIO 
 import sys
+import git
 
+# asking for GitHub username
+user = input("\n\nWhat is your GitHub username (exact match, case sensitive)?\n")
 
 # capturing prints (stdout)
 class Capturing(list):
@@ -104,7 +107,7 @@ def test_hailstone():
     for i in range(len(hailstone_10)):
         assert hailstone_10[i] == hailstone_10_output[i] # incorrect prints
     assert lab.hailstone(10) == 7
-    
+
     print("\n\nhailstone(1) prints:")
     with Capturing() as hailstone_1_output:
         lab.hailstone(1)
@@ -112,3 +115,21 @@ def test_hailstone():
     for i in range(len(hailstone_1)):
         assert hailstone_1[i] == hailstone_1_output[i] # incorrect prints
     assert lab.hailstone(1) == 1
+
+
+def test_wwpd():
+    # converting lab file into string
+    path = "/workspaces/lab01-" + user + "/tests/wwpd_storage.py"
+    text_file = open(path, "r")
+    data = text_file.read()
+    text_file.close()
+    split = data.splitlines( )
+    assert len(split[1:]) == 41 # WWPD? not complete 
+
+
+def test_commit():
+    repo = git.Repo("/workspaces/lab01-" + user)
+    repo.git.add('--all')
+    repo.git.commit('-m', 'update lab')
+    origin = repo.remote(name='origin')
+    origin.push()

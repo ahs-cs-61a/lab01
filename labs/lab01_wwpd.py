@@ -8,6 +8,12 @@ import inspect
 def repeat():
     print("try again:")
     return input()
+    
+
+def store(x):
+    op = open("tests/wwpd_storage.py", "a")
+    op.write(x + "/n")
+    op.close()
 
 
 def intro():
@@ -143,21 +149,26 @@ def wwpd_control():  # wwpd_control
     x = input()
     while x != str(xk(10, 10)):
         x = repeat()
+    store(x)
 
     print(">>> xk(10, 6)")
     x = input()
     while x != str(xk(10, 6)):
         x = repeat()
+    store(x)
 
     print(">>> xk(4, 6)")
     x = input()
     while x != str(xk(4, 6)):
         x = repeat()
+    store(x)
+
 
     print(">>> xk(0, 0)")
     x = input()
     while x != str(xk(0, 0)):
         x = repeat()
+    store(x)
 
     print("\n", inspect.getsource(how_big))  # how_big
 
@@ -165,21 +176,25 @@ def wwpd_control():  # wwpd_control
     x = input()
     while x != "big":
         x = repeat()
+    store(x)
 
     print(">>> how_big(12)")
     x = input()
     while x != "huge":
         x = repeat()
+    store(x)
 
     print(">>> how_big(1)")
     x = input()
     while x != "small":
         x = repeat()
+    store(x)
 
     print(">>> how_big(-1)")
     x = input()
     while x != "nothing":
         x = repeat()
+    store(x)
 
     print("\n", inspect.getsource(short_loop_1))  # short_loop_1
 
@@ -188,14 +203,17 @@ def wwpd_control():  # wwpd_control
     x = input()
     while x != "2":
         x = repeat()
+    store(x)
 
     x = input()
     while x != "1":
         x = repeat()
+    store(x)
 
     x = input()
     while x != "0":
         x = repeat()
+    store(x)
 
     print("\n", inspect.getsource(short_loop_2))  # short_loop_2
 
@@ -203,6 +221,7 @@ def wwpd_control():  # wwpd_control
     x = input()
     while x != "infinite loop":
         x = repeat()
+    store(x)
 
     print("\n", inspect.getsource(short_loop_3))  # short_loop_3
 
@@ -210,14 +229,17 @@ def wwpd_control():  # wwpd_control
     x = input()
     while x != "-12":
         x = repeat()
+    store(x)
 
     x = input()
     while x != "-9":
         x = repeat()
+    store(x)
 
     x = input()
     while x != "-6":
         x = repeat()
+    store(x)
 
     outro()
 
@@ -229,26 +251,31 @@ def wwpd_booleans():  # wwpd_booleans
     x = input()
     while x != str(True and 13):
         x = repeat()
+    store(x)
 
     print(">>> False or 0")
     x = input()
     while x != str(False or 0):
         x = repeat()
+    store(x)
 
     print(">>> not 10")
     x = input()
     while x != str(not 10):
         x = repeat()
+    store(x)
 
     print(">>> not None")
     x = input()
     while x != str(not None):
         x = repeat()
+    store(x)
 
     print(">>> True and 1 / 0 and False")
     x = input()
     while x != "error":
         x = repeat()
+    store(x)
 
     print(">>> True or 1 / 0 or False")
     x = input()
