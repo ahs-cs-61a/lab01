@@ -1,15 +1,12 @@
 # lab01
   
-this assignment will be on Python variables, functions, and control (if statements, and/or, loops, etc.)
-  
-this assignment merges problems from disc01, lab01, and hw01 into one; refer to these links for problem descriptions and requirements:
+This assignment will be on Python variables, functions, and control; it merges problems from disc01, lab01, and hw01 into one - refer to these links for problem descriptions and requirements:
   
 - disc01: https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc01/
 - lab01: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab01/
 - hw01: https://inst.eecs.berkeley.edu/~cs61a/su22/hw/hw01/
   
 lecture slides: 
-  
 - functions: https://docs.google.com/presentation/d/172UPPqyyABUpZTgpI0tmrcwkFeNx8KcV_5pKJtTnZm8/edit?usp=sharing
 - control: https://inst.eecs.berkeley.edu/~cs61a/su22/assets/slides/03-Control.pdf
   
