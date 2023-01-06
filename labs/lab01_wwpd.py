@@ -269,5 +269,5 @@ def wwpd_what_if():
 def wwpd_case_conundrum():  
     wwpd("Case Conundrum", case_conundrum_qs, st)
 
-def wwpd_square_so_slow():  # wwpd_square_so_slow
+def wwpd_square_so_slow():
     wwpd("Square So Slow", square_so_slow_qs, st)
