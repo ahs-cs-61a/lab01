@@ -1,1 +1,1 @@
-# lab01 WWPD? storage
+wwpd_storage = []

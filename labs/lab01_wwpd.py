@@ -101,7 +101,6 @@ def xk(c, d):
     else:
         return 25
 
-
 def how_big(x):
     if x > 10:
         print("huge")
