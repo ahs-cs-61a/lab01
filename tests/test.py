@@ -1,14 +1,19 @@
 # lab01 tests
 
+# IMPORTS
+
 import labs.lab01 as lab
+import tests.wwpd_storage as s
 from io import StringIO 
 import sys
 import git
+import time
 
-# asking for GitHub username
-user = input("\n\nWhat is your GitHub username (exact match, case sensitive)?\n")
+st = s.wwpd_storage 
 
-# capturing prints (stdout)
+
+# CAPTURING PRINTS (STDOUT) - https://stackoverflow.com/questions/16571150/how-to-capture-stdout-output-from-a-python-function-call
+
 class Capturing(list):
     def __enter__(self):
         self._stdout = sys.stdout
@@ -18,6 +23,26 @@ class Capturing(list):
         self.extend(self._stringio.getvalue().splitlines())
         del self._stringio
         sys.stdout = self._stdout
+
+
+# COLORED PRINTS - custom text type to terminal: https://stackoverflow.com/questions/287871/how-do-i-print-colored-text-to-the-terminal, ANSI colors: http://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
+
+class bcolors:
+    HIGH_MAGENTA = '\u001b[45m'
+    HIGH_GREEN = '\u001b[42m'
+    HIGH_YELLOW = '\u001b[43m'
+    HIGH_RED = '\u001b[41m'
+    HIGH_BLUE = '\u001b[44m'
+    MAGENTA = ' \u001b[35m'
+    GREEN = '\u001b[32m'
+    YELLOW = '\u001b[33m'
+    RED = '\u001b[31m'
+    BLUE = '\u001b[34m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+    RESET = '\u001b[0m'
+
 
 
 def test_falling():
@@ -59,8 +84,9 @@ def test_fizzbuzz():
     with Capturing() as fizzbuzz_16_output:
         lab.fizzbuzz(16)
     fizzbuzz_16 = ['1', '2', 'fizz', '4', 'buzz', 'fizz', '7', '8', 'fizz', 'buzz', '11', 'fizz', '13', '14', 'fizzbuzz', '16']
-    for i in range(len(fizzbuzz_16)):
-        assert fizzbuzz_16[i] == fizzbuzz_16_output[i]
+    if fizzbuzz_16 != fizzbuzz_16_output:
+        print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: " + bcolors.RESET + bcolors.YELLOW + bcolors.BOLD + "INCORRECT PRINTS FROM FIZZBUZZ(16)" + bcolors.ENDC)
+        assert fizzbuzz_16 == fizzbuzz_16_output
     assert lab.fizzbuzz(16) is None # print, don't return
 
 
@@ -104,32 +130,38 @@ def test_hailstone():
     with Capturing() as hailstone_10_output:
         lab.hailstone(10)
     hailstone_10 = ['10', '5', '16', '8', '4', '2', '1']
-    for i in range(len(hailstone_10)):
-        assert hailstone_10[i] == hailstone_10_output[i] # incorrect prints
+    if hailstone_10 != hailstone_10_output:
+        print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: Incorrect prints from hailstone(10)" + bcolors.ENDC)
+        assert hailstone_10 == hailstone_10_output # incorrect prints
     assert lab.hailstone(10) == 7
 
     print("\n\nhailstone(1) prints:")
     with Capturing() as hailstone_1_output:
         lab.hailstone(1)
     hailstone_1 = ['1']
-    for i in range(len(hailstone_1)):
-        assert hailstone_1[i] == hailstone_1_output[i] # incorrect prints
+    if hailstone_1 != hailstone_1_output:
+        print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: Incorrect prints from hailstone(1)" + bcolors.ENDC)
+        assert hailstone_1 == hailstone_1_output # incorrect prints
     assert lab.hailstone(1) == 1
 
 
+# CHECK WWPD? IS ALL COMPLETE
 def test_wwpd():
-    # converting lab file into string
-    path = "/workspaces/lab01-" + user + "/tests/wwpd_storage.py"
-    text_file = open(path, "r")
-    data = text_file.read()
-    text_file.close()
-    split = data.splitlines( )
-    assert len(split[1:]) == 41 # WWPD? not complete 
+    assert len(st) == 41
 
 
 def test_commit():
-    repo = git.Repo("/workspaces/lab01-" + user)
-    repo.git.add('--all')
-    repo.git.commit('-m', 'update lab')
-    origin = repo.remote(name='origin')
-    origin.push()
+    try:
+        # IF CHANGES ARE MADE, COMMIT TO GITHUB
+        user = input("\n\nWhat is your GitHub username (exact match, case sensitive)?\n")
+        repo = git.Repo("/workspaces/lab01-" + user)
+        repo.git.add('--all')
+        repo.git.commit('-m', 'update lab')
+        origin = repo.remote(name='origin')
+        origin.push()
+
+        t = time.localtime()
+        print(bcolors.HIGH_GREEN + bcolors.BOLD + "\nSUCCESS: Lab complete and changes successfully committed." + bcolors.ENDC)
+    except: 
+        # IF CHANGES ARE NOT MADE, NO COMMITS TO GITHUB
+        print(bcolors.HIGH_MAGENTA + bcolors.BOLD + "\nMESSAGE: Already up to date. No updates committed." + bcolors.ENDC)

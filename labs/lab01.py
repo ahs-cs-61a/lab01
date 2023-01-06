@@ -1,4 +1,4 @@
-# lab01 - variables, control, functions
+# lab01: variables, control, functions
 
 from operator import add, sub
 

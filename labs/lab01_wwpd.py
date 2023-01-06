@@ -1,34 +1,97 @@
 # lab01 WWPD?
 
+# IMPORTS
+
 import inspect
+import tests.wwpd_storage as s
 
-# preliminaries
+st = s.wwpd_storage 
 
+# COLORED PRINTS - custom text type to terminal: https://stackoverflow.com/questions/287871/how-do-i-print-colored-text-to-the-terminal, ANSI colors: http://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
+
+class bcolors:
+    HIGH_MAGENTA = '\u001b[45m'
+    HIGH_GREEN = '\u001b[42m'
+    HIGH_YELLOW = '\u001b[43;1m'
+    HIGH_RED = '\u001b[41m'
+    HIGH_BLUE = '\u001b[44m'
+    MAGENTA = ' \u001b[35m'
+    GREEN = '\u001b[32m'
+    YELLOW = '\u001b[33;1m'
+    RED = '\u001b[31m'
+    BLUE = '\u001b[34m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+    RESET = '\u001b[0m'
+
+
+# INCORRECT ANSWER LOOP, INSTRUCTIONS, COMPLETE, OPTIONS
 
 def repeat():
-    print("try again:")
+    print("Try again:")
     return input()
-    
 
-def store(x):
-    op = open("tests/wwpd_storage.py", "a")
-    op.write(x + "/n")
-    op.close()
+def intro(name):
+    print("\nWhat Would Python Display?: " + name)
+    print("Type the expected output, 'function' if you think the answer is a function object, 'infinite loop' if it loops forever, 'nothing' if nothing is displayed, or 'error' if it errors; use single quotes '' when needed.\n")
+
+def complete():
+    print(bcolors.HIGH_GREEN + bcolors.BOLD + "\nSUCCESS: All questions for this question set complete." + bcolors.ENDC)
+
+def options():
+
+    print(bcolors.HIGH_MAGENTA + bcolors.BOLD + "\nMESSAGE: All questions for this question set complete. Restart question set?" + bcolors.ENDC)
+    guess = input("Y/N?\n")
+    guess = guess.lower()
+    while guess != "y" and guess != "n":
+        print(bcolors.HIGH_YELLOW + bcolors.BOLD + "\nUnknown input, please try again." + bcolors.ENDC)
+        guess = input()
+    if guess == "y":
+        return "restart"
+    return False
 
 
-def intro():
-    print("What Would Python Display?")
-    print(
-        "type the expected output, 'function' if you think the answer is a function object, 'infinite loop' if it loops forever, 'nothing' if nothing is displayed, or 'error' if it errors; use single quotes '' when needed\n"
-    )
+# WWPD? ALGORITHM 
+
+def wwpd(name, question_set, stored_list):
+
+    intro(name)
+
+    match_elems1 = [[question_set[i][0], question_set[i][2]] for i in range(len(question_set))]
+    match_elems2 = [[stored_list[i][0], stored_list[i][1]] for i in range(len(stored_list))]
+
+    restart = str(match_elems1)[1:-1] in str(match_elems2) and options() == "restart"
+
+    done = False
+    for i in question_set:
+        group = [i[0], i[2], i[3], True]
+        if group not in stored_list or restart:
+            done = True 
+            if i[1]:
+                print(i[1])
+            if i[2]:
+                print(i[2])
+            guess = input()
+            while guess != i[3]:
+                guess = repeat()
+            if str(match_elems1)[1:] not in str(match_elems2):
+                op = open("tests/wwpd_storage.py", "w")
+                if not stored_list:
+                    stored_list = [group]
+                else:
+                    for j in range(len(stored_list)):
+                        if group[0] < stored_list[j][0]:
+                            stored_list.insert(j, group)
+                            break
+                    stored_list.append(group)
+                op.write("wwpd_storage = " + str(stored_list))
+                op.close()
+    if done:
+        complete()
 
 
-def outro():
-    print("\nall questions for this question set complete")
-
-
-# reference functions
-
+# REFERENCE FUNCTIONS
 
 def xk(c, d):
     if c == 4:
@@ -49,20 +112,17 @@ def how_big(x):
     else:
         print("nothing")
 
-
 def short_loop_1():
     n = 3
     while n >= 0:
         n -= 1
         print(n)
 
-
 def short_loop_2():
     positive = 28
     while positive:
         print("positive")
         positive -= 3
-
 
 def short_loop_3():
     positive = -9
@@ -73,14 +133,12 @@ def short_loop_3():
         positive += 3
         negative += 3
 
-
 def ab(c, d):
     if c > 5:
         print(c)
     elif c > 7:
         print(d)
     print("foo")
-
 
 def bake(cake, make):
     if cake == 0:
@@ -92,7 +150,6 @@ def bake(cake, make):
         return cake
     return make
 
-
 def special_case():
     x = 10
     if x > 0:
@@ -102,7 +159,6 @@ def special_case():
     elif x % 2 == 1:
         x += 4
     return x
-
 
 def just_in_case():
     x = 10
@@ -114,7 +170,6 @@ def just_in_case():
         x += 4
     return x
 
-
 def case_in_point():
     x = 10
     if x > 0:
@@ -125,11 +180,9 @@ def case_in_point():
         return x + 4
     return x
 
-
 def square(x):
     print("here!")
     return x * x
-
 
 def so_slow(num):
     x = num
@@ -138,272 +191,84 @@ def so_slow(num):
     return x / 0
 
 
-# wwpd questions
+# QUESTION SET - ELEMENT FORMAT: [<QUESTION #>, <INITIAL PRINTS> (usually empty), <QUESTION>, <ANSWER>, <COMPLETE?>]
+# INSPECT MODULE - convert function body into String: https://docs.python.org/3/library/inspect.html 
+
+booleans_qs = [
+    ["", ">>> True and 13", str(True and 13)], 
+    ["", ">>> False or 0", str(False or 0)], 
+    ["", ">>> not 10", str(not 10)], 
+    ["", ">>> not None", str(not None)], 
+    ["", ">>> True and 1 / 0 and False", "error"], 
+    ["", ">>> True or 1 / 0 or False", str(True or 1 / 0 or False)], 
+    ["", ">>> True or 0", str(True or 0)], 
+    ["", ">>> False or 1", str(False or 1)], 
+    ["", ">>> 1 and 3 and 6 and 10 and 15", str(1 and 3 and 6 and 10 and 15)], 
+    ["", ">>> -1 and 1 > 0", str(-1 and 1 > 0)], 
+    ["", ">>> 0 or False or 2 or 1 / 0", str(0 or False or 2 or 1 / 0)], 
+    ["", ">>> not 0", str(not 0)], 
+    ["", ">>> (1 + 1) and 1", str((1 + 1) and 1)], 
+    ["", ">>> 1/0 or True", "error"], 
+    ["", ">>> (True or False) and False", str((True or False) and False)]
+    ]
+booleans_qs = [[i + 1] + booleans_qs[i] + [False] for i in range(len(booleans_qs))]
+
+control_qs = [
+    ["\n" + inspect.getsource(xk), ">>> xk(10, 10)", str(xk(10, 10))], 
+    ["", ">>> xk(10, 6)", str(xk(10, 6))], 
+    ["", ">>> xk(4, 6)", str(xk(4, 6))], 
+    ["", ">>> xk(0, 0)", str(xk(0, 0))], 
+    ["\n" + inspect.getsource(how_big), ">>> how_big(7)", "big"],
+    ["", ">>> how_big(12)", "huge"], 
+    ["", ">>> how_big(1)", "small"], 
+    ["", ">>> how_big(-1)", "nothing"], 
+    ["\n" + inspect.getsource(short_loop_1), ">>> short_loop_1()", "2"], 
+    ["", "", "1"], 
+    ["", "", "0"], 
+    ["\n" + inspect.getsource(short_loop_2), ">>> short_loop_2()", "infinite loop"], 
+    ["\n" + inspect.getsource(short_loop_3), ">>> short_loop_3()", "-12"],
+    ["", "", "-9"], 
+    ["", "", "-6"]
+    ]
+control_qs = [[i + 1] + control_qs[i] + [False] for i in range(len(control_qs))]
+
+what_if_qs = [
+    [inspect.getsource(ab), ">>> ab(10, 20)", str(xk(10, 10)), "10"], 
+    ["", "", "foo"], 
+    [inspect.getsource(bake), ">>> bake(0, 29)", "1"], 
+    ["", "", "29"], 
+    ["", "", "29"],
+    ["", ">>> bake(1, 'mashed potatoes')", "mashed potatoes"], 
+    ["", "", "'mashed potatoes'"], 
+    ]
+what_if_qs = [[i + 1] + what_if_qs[i] + [False] for i in range(len(what_if_qs))]
+
+case_conundrum_qs = [
+    [inspect.getsource(special_case), ">>> special_case()", str(special_case())],
+    [inspect.getsource(just_in_case), ">>> just_in_case()", str(just_in_case())],
+    [inspect.getsource(case_in_point), ">>> case_in_point()", str(case_in_point())]
+    ]
+case_conundrum_qs = [[i + 1] + case_conundrum_qs[i] + [False] for i in range(len(case_conundrum_qs))]
+
+square_so_slow_qs = [
+    [inspect.getsource(square) + "\n" + inspect.getsource(so_slow), ">>> square(so_slow(5))", "infinite loop"]
+    ]
+square_so_slow_qs = [[i + 1] + square_so_slow_qs[i] + [False] for i in range(len(square_so_slow_qs))]
 
 
-def wwpd_control():  # wwpd_control
-    intro()
-    print(inspect.getsource(xk))  # xk
+# WWPD? QUESTIONS
 
-    print(">>> xk(10, 10)")
-    x = input()
-    while x != str(xk(10, 10)):
-        x = repeat()
-    store(x)
+def wwpd_booleans():  
+    wwpd("Booleans", booleans_qs, st)
 
-    print(">>> xk(10, 6)")
-    x = input()
-    while x != str(xk(10, 6)):
-        x = repeat()
-    store(x)
+def wwpd_control():  
+    wwpd("Control", control_qs, st)
 
-    print(">>> xk(4, 6)")
-    x = input()
-    while x != str(xk(4, 6)):
-        x = repeat()
-    store(x)
+def wwpd_what_if():  
+    wwpd("What If?", what_if_qs, st)
 
-
-    print(">>> xk(0, 0)")
-    x = input()
-    while x != str(xk(0, 0)):
-        x = repeat()
-    store(x)
-
-    print("\n", inspect.getsource(how_big))  # how_big
-
-    print(">>> how_big(7)")
-    x = input()
-    while x != "big":
-        x = repeat()
-    store(x)
-
-    print(">>> how_big(12)")
-    x = input()
-    while x != "huge":
-        x = repeat()
-    store(x)
-
-    print(">>> how_big(1)")
-    x = input()
-    while x != "small":
-        x = repeat()
-    store(x)
-
-    print(">>> how_big(-1)")
-    x = input()
-    while x != "nothing":
-        x = repeat()
-    store(x)
-
-    print("\n", inspect.getsource(short_loop_1))  # short_loop_1
-
-    print(">>> short_loop_1()")
-
-    x = input()
-    while x != "2":
-        x = repeat()
-    store(x)
-
-    x = input()
-    while x != "1":
-        x = repeat()
-    store(x)
-
-    x = input()
-    while x != "0":
-        x = repeat()
-    store(x)
-
-    print("\n", inspect.getsource(short_loop_2))  # short_loop_2
-
-    print(">>> short_loop_2()")
-    x = input()
-    while x != "infinite loop":
-        x = repeat()
-    store(x)
-
-    print("\n", inspect.getsource(short_loop_3))  # short_loop_3
-
-    print(">>> short_loop_3()")
-    x = input()
-    while x != "-12":
-        x = repeat()
-    store(x)
-
-    x = input()
-    while x != "-9":
-        x = repeat()
-    store(x)
-
-    x = input()
-    while x != "-6":
-        x = repeat()
-    store(x)
-
-    outro()
-
-
-def wwpd_booleans():  # wwpd_booleans
-    intro()
-
-    print(">>> True and 13")
-    x = input()
-    while x != str(True and 13):
-        x = repeat()
-    store(x)
-
-    print(">>> False or 0")
-    x = input()
-    while x != str(False or 0):
-        x = repeat()
-    store(x)
-
-    print(">>> not 10")
-    x = input()
-    while x != str(not 10):
-        x = repeat()
-    store(x)
-
-    print(">>> not None")
-    x = input()
-    while x != str(not None):
-        x = repeat()
-    store(x)
-
-    print(">>> True and 1 / 0 and False")
-    x = input()
-    while x != "error":
-        x = repeat()
-    store(x)
-
-    print(">>> True or 1 / 0 or False")
-    x = input()
-    while x != str(True or 1 / 0 or False):
-        x = repeat()
-
-    print(">>> True or 0")
-    x = input()
-    while x != str(True or 0):
-        x = repeat()
-
-    print(">>> False or 1")
-    x = input()
-    while x != str(False or 1):
-        x = repeat()
-
-    print(">>> 1 and 3 and 6 and 10 and 15")
-    x = input()
-    while x != str(1 and 3 and 6 and 10 and 15):
-        x = repeat()
-
-    print(">>> -1 and 1 > 0")
-    x = input()
-    while x != str(-1 and 1 > 0):
-        x = repeat()
-
-    print(">>> 0 or False or 2 or 1 / 0")
-    x = input()
-    while x != str(0 or False or 2 or 1 / 0):
-        x = repeat()
-
-    print(">>> not 0")
-    x = input()
-    while x != str(not 0):
-        x = repeat()
-
-    print(">>> (1 + 1) and 1")
-    x = input()
-    while x != str((1 + 1) and 1):
-        x = repeat()
-
-    print(">>> 1/0 or True")
-    x = input()
-    while x != "error":
-        x = repeat()
-
-    print(">>> (True or False) and False")
-    x = input()
-    while x != str((True or False) and False):
-        x = repeat()
-
-    outro()
-
-
-def wwpd_what_if():  # wwpd_what_if
-    intro()
-    print(inspect.getsource(ab))  # ab
-
-    print(">>> ab(10, 20)")
-    x = input()
-    while x != "10":
-        x = repeat()
-
-    x = input()
-    while x != "foo":
-        x = repeat()
-
-    print("\n", inspect.getsource(bake))  # bake
-
-    print(">>> bake(0, 29)")
-    x = input()
-    while x != "1":
-        x = repeat()
-
-    x = input()
-    while x != "29":
-        x = repeat()
-
-    x = input()
-    while x != "29":
-        x = repeat()
-
-    print(">>> bake(1, 'mashed potatoes')")
-    x = input()
-    while x != "mashed potatoes":
-        x = repeat()
-
-    x = input()
-    while x != "'mashed potatoes'":
-        x = repeat()
-
-    outro()
-
-
-def wwpd_case_conundrum():  # wwpd_case_conundrum
-    intro()
-    print(inspect.getsource(special_case))  # special_case
-
-    print(">>> special_case()")
-    x = input()
-    while x != str(special_case()):
-        x = repeat()
-
-    print("\n", inspect.getsource(just_in_case))  # just_in_case
-
-    print(">>> just_in_case()")
-    x = input()
-    while x != str(just_in_case()):
-        x = repeat()
-
-    print("\n", inspect.getsource(case_in_point))  # case_in_point
-
-    print(">>> case_in_point()")
-    x = input()
-    while x != str(case_in_point()):
-        x = repeat()
-
-    outro()
-
+def wwpd_case_conundrum():  
+    wwpd("Case Conundrum", case_conundrum_qs, st)
 
 def wwpd_square_so_slow():  # wwpd_square_so_slow
-    intro()
-    print(inspect.getsource(square))
-    print("\n", inspect.getsource(so_slow))
-
-    print(">>> square(so_slow(5))")
-    x = input()
-    while x != "infinite loop":
-        x = repeat()
-
-    outro()
+    wwpd("Square So Slow", square_so_slow_qs, st)
