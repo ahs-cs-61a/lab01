@@ -1,6 +1,6 @@
-# lab01
+# lab01: Variables, Functions, Control
   
-This assignment will be on Python variables, functions, and control; it merges problems from disc01, lab01, and hw01 into one - refer to these links for problem descriptions and requirements:
+This assignment merges problems from disc01, lab01, and hw01 into one; refer to these links for problem descriptions and requirements:
   
 - disc01: https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc01/
 - lab01: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab01/
