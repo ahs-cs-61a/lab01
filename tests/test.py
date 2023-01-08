@@ -7,7 +7,6 @@ import tests.wwpd_storage as s
 from io import StringIO 
 import sys
 import git
-import time
 
 st = s.wwpd_storage 
 
@@ -44,6 +43,7 @@ class bcolors:
     RESET = '\u001b[0m'
 
 
+# TESTS
 
 def test_falling():
     assert lab.falling(6, 3) == 120
@@ -85,9 +85,11 @@ def test_fizzbuzz():
         lab.fizzbuzz(16)
     fizzbuzz_16 = ['1', '2', 'fizz', '4', 'buzz', 'fizz', '7', '8', 'fizz', 'buzz', '11', 'fizz', '13', '14', 'fizzbuzz', '16']
     if fizzbuzz_16 != fizzbuzz_16_output:
-        print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: " + bcolors.RESET + bcolors.YELLOW + bcolors.BOLD + "INCORRECT PRINTS FROM FIZZBUZZ(16)" + bcolors.ENDC)
+        print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: Incorrect prints from fizzbuzz(16)" + bcolors.ENDC)
         assert fizzbuzz_16 == fizzbuzz_16_output
-    assert lab.fizzbuzz(16) is None # print, don't return
+    if lab.fizzbuzz(16) is not None:
+        print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: Print, do not return." + bcolors.ENDC)
+        assert lab.fizzbuzz(16) is None 
 
 
 def test_has_digit():
@@ -132,7 +134,7 @@ def test_hailstone():
     hailstone_10 = ['10', '5', '16', '8', '4', '2', '1']
     if hailstone_10 != hailstone_10_output:
         print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: Incorrect prints from hailstone(10)" + bcolors.ENDC)
-        assert hailstone_10 == hailstone_10_output # incorrect prints
+        assert hailstone_10 == hailstone_10_output
     assert lab.hailstone(10) == 7
 
     print("\n\nhailstone(1) prints:")
@@ -141,7 +143,7 @@ def test_hailstone():
     hailstone_1 = ['1']
     if hailstone_1 != hailstone_1_output:
         print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: Incorrect prints from hailstone(1)" + bcolors.ENDC)
-        assert hailstone_1 == hailstone_1_output # incorrect prints
+        assert hailstone_1 == hailstone_1_output
     assert lab.hailstone(1) == 1
 
 
@@ -150,6 +152,7 @@ def test_wwpd():
     assert len(st) == 41
 
 
+# AUTO-COMMIT WHEN ALL TESTS ARE RAN
 def test_commit():
     try:
         # IF CHANGES ARE MADE, COMMIT TO GITHUB
@@ -160,7 +163,6 @@ def test_commit():
         origin = repo.remote(name='origin')
         origin.push()
 
-        t = time.localtime()
         print(bcolors.HIGH_GREEN + bcolors.BOLD + "\nSUCCESS: Lab complete and changes successfully committed." + bcolors.ENDC)
     except: 
         # IF CHANGES ARE NOT MADE, NO COMMITS TO GITHUB
