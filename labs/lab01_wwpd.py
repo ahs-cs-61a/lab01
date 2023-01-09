@@ -1,11 +1,13 @@
 # lab01 WWPD?
 
+
 # IMPORTS
 
 import inspect
 import tests.wwpd_storage as s
 
 st = s.wwpd_storage 
+
 
 # COLORED PRINTS - custom text type to terminal: https://stackoverflow.com/questions/287871/how-do-i-print-colored-text-to-the-terminal, ANSI colors: http://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
 
@@ -92,6 +94,8 @@ def wwpd(name, question_set, stored_list):
 
 # REFERENCE FUNCTIONS
 
+# https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab01/
+
 def xk(c, d):
     if c == 4:
         return 6
@@ -147,6 +151,8 @@ def bake(cake, make):
     else:
         return cake
     return make
+
+# https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc01/#q1-case-conundrum
 
 def special_case():
     x = 10
@@ -231,7 +237,7 @@ control_qs = [
 control_qs = [[i + 1] + control_qs[i] + [False] for i in range(len(control_qs))]
 
 what_if_qs = [
-    [inspect.getsource(ab), ">>> ab(10, 20)", str(xk(10, 10)), "10"], 
+    [inspect.getsource(ab), ">>> ab(10, 20)", "10"], 
     ["", "", "foo"], 
     [inspect.getsource(bake), ">>> bake(0, 29)", "1"], 
     ["", "", "29"], 

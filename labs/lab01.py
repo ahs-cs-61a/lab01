@@ -5,7 +5,6 @@ from operator import add, sub
 
 # disc01: https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc01/
 
-
 def wears_jacket_with_if(temp, raining):  # q1
     """
     >>> wears_jacket_with_if(90, False)
@@ -86,7 +85,6 @@ def unique_digits(n):  # q5, use has_digit
 
 # lab01: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab01/
 
-
 def falling(n, k):  # q6
     """Compute the falling factorial of n to depth k.
 
@@ -137,7 +135,6 @@ def double_eights(n):  # q8
 
 
 # hw01: https://inst.eecs.berkeley.edu/~cs61a/su22/hw/hw01/
-
 
 def a_plus_abs_b(a, b):  # q9
     """Return a+abs(b), but without calling abs.

@@ -1,5 +1,6 @@
 # lab01 tests
 
+
 # IMPORTS
 
 import labs.lab01 as lab
@@ -148,11 +149,13 @@ def test_hailstone():
 
 
 # CHECK WWPD? IS ALL COMPLETE
+
 def test_wwpd():
     assert len(st) == 41
 
 
 # AUTO-COMMIT WHEN ALL TESTS ARE RAN
+
 def test_commit():
     try:
         # IF CHANGES ARE MADE, COMMIT TO GITHUB
@@ -162,7 +165,6 @@ def test_commit():
         repo.git.commit('-m', 'update lab')
         origin = repo.remote(name='origin')
         origin.push()
-
         print(bcolors.HIGH_GREEN + bcolors.BOLD + "\nSUCCESS: Lab complete and changes successfully committed." + bcolors.ENDC)
     except: 
         # IF CHANGES ARE NOT MADE, NO COMMITS TO GITHUB
