@@ -88,6 +88,7 @@ def test_fizzbuzz():
     if fizzbuzz_16 != fizzbuzz_16_output:
         print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: Incorrect prints from fizzbuzz(16)" + bcolors.ENDC)
         assert fizzbuzz_16 == fizzbuzz_16_output
+        
     if lab.fizzbuzz(16) is not None:
         print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: Print, do not return." + bcolors.ENDC)
         assert lab.fizzbuzz(16) is None 
