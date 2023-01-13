@@ -199,65 +199,60 @@ def so_slow(num):
 # INSPECT MODULE - convert function body into String: https://docs.python.org/3/library/inspect.html 
 
 booleans_qs = [
-    ["", ">>> True and 13", str(True and 13)], 
-    ["", ">>> False or 0", str(False or 0)], 
-    ["", ">>> not 10", str(not 10)], 
-    ["", ">>> not None", str(not None)], 
-    ["", ">>> True and 1 / 0 and False", "error"], 
-    ["", ">>> True or 1 / 0 or False", str(True or 1 / 0 or False)], 
-    ["", ">>> True or 0", str(True or 0)], 
-    ["", ">>> False or 1", str(False or 1)], 
-    ["", ">>> 1 and 3 and 6 and 10 and 15", str(1 and 3 and 6 and 10 and 15)], 
-    ["", ">>> -1 and 1 > 0", str(-1 and 1 > 0)], 
-    ["", ">>> 0 or False or 2 or 1 / 0", str(0 or False or 2 or 1 / 0)], 
-    ["", ">>> not 0", str(not 0)], 
-    ["", ">>> (1 + 1) and 1", str((1 + 1) and 1)], 
-    ["", ">>> 1/0 or True", "error"], 
-    ["", ">>> (True or False) and False", str((True or False) and False)]
+    [1, "", ">>> True and 13", str(True and 13)], 
+    [2, "", ">>> False or 0", str(False or 0)], 
+    [3, "", ">>> not 10", str(not 10)], 
+    [4, "", ">>> not None", str(not None)], 
+    [5, "", ">>> True and 1 / 0 and False", "error"], 
+    [6, "", ">>> True or 1 / 0 or False", str(True or 1 / 0 or False)], 
+    [7, "", ">>> True or 0", str(True or 0)], 
+    [8, "", ">>> False or 1", str(False or 1)], 
+    [9, "", ">>> 1 and 3 and 6 and 10 and 15", str(1 and 3 and 6 and 10 and 15)], 
+    [10, "", ">>> -1 and 1 > 0", str(-1 and 1 > 0)], 
+    [11, "", ">>> 0 or False or 2 or 1 / 0", str(0 or False or 2 or 1 / 0)], 
+    [12, "", ">>> not 0", str(not 0)], 
+    [13, "", ">>> (1 + 1) and 1", str((1 + 1) and 1)], 
+    [14, "", ">>> 1/0 or True", "error"], 
+    [15, "", ">>> (True or False) and False", str((True or False) and False)]
     ]
-booleans_qs = [[i + 1] + booleans_qs[i] + [False] for i in range(len(booleans_qs))]
 
 control_qs = [
-    ["\n" + inspect.getsource(xk), ">>> xk(10, 10)", str(xk(10, 10))], 
-    ["", ">>> xk(10, 6)", str(xk(10, 6))], 
-    ["", ">>> xk(4, 6)", str(xk(4, 6))], 
-    ["", ">>> xk(0, 0)", str(xk(0, 0))], 
-    ["\n" + inspect.getsource(how_big), ">>> how_big(7)", "big"],
-    ["", ">>> how_big(12)", "huge"], 
-    ["", ">>> how_big(1)", "small"], 
-    ["", ">>> how_big(-1)", "nothing"], 
-    ["\n" + inspect.getsource(short_loop_1), ">>> short_loop_1()", "2"], 
-    ["", "", "1"], 
-    ["", "", "0"], 
-    ["\n" + inspect.getsource(short_loop_2), ">>> short_loop_2()", "infinite loop"], 
-    ["\n" + inspect.getsource(short_loop_3), ">>> short_loop_3()", "-12"],
-    ["", "", "-9"], 
-    ["", "", "-6"]
+    [16, "\n" + inspect.getsource(xk), ">>> xk(10, 10)", str(xk(10, 10))], 
+    [17, "", ">>> xk(10, 6)", str(xk(10, 6))], 
+    [18, "", ">>> xk(4, 6)", str(xk(4, 6))], 
+    [19, "", ">>> xk(0, 0)", str(xk(0, 0))], 
+    [20, "\n" + inspect.getsource(how_big), ">>> how_big(7)", "big"],
+    [21, "", ">>> how_big(12)", "huge"], 
+    [22, "", ">>> how_big(1)", "small"], 
+    [23, "", ">>> how_big(-1)", "nothing"], 
+    [24, "\n" + inspect.getsource(short_loop_1), ">>> short_loop_1()", "2"], 
+    [25, "", "", "1"], 
+    [26, "", "", "0"], 
+    [27, "\n" + inspect.getsource(short_loop_2), ">>> short_loop_2()", "infinite loop"], 
+    [28, "\n" + inspect.getsource(short_loop_3), ">>> short_loop_3()", "-12"],
+    [29, "", "", "-9"], 
+    [30, "", "", "-6"]
     ]
-control_qs = [[i + 1] + control_qs[i] + [False] for i in range(len(control_qs))]
 
 what_if_qs = [
-    [inspect.getsource(ab), ">>> ab(10, 20)", "10"], 
-    ["", "", "foo"], 
-    [inspect.getsource(bake), ">>> bake(0, 29)", "1"], 
-    ["", "", "29"], 
-    ["", "", "29"],
-    ["", ">>> bake(1, 'mashed potatoes')", "mashed potatoes"], 
-    ["", "", "'mashed potatoes'"], 
+    [31, inspect.getsource(ab), ">>> ab(10, 20)", "10"], 
+    [32, "", "", "foo"], 
+    [33, inspect.getsource(bake), ">>> bake(0, 29)", "1"], 
+    [34, "", "", "29"], 
+    [35, "", "", "29"],
+    [36, "", ">>> bake(1, 'mashed potatoes')", "mashed potatoes"], 
+    [37, "", "", "'mashed potatoes'"], 
     ]
-what_if_qs = [[i + 1] + what_if_qs[i] + [False] for i in range(len(what_if_qs))]
 
 case_conundrum_qs = [
-    [inspect.getsource(special_case), ">>> special_case()", str(special_case())],
-    [inspect.getsource(just_in_case), ">>> just_in_case()", str(just_in_case())],
-    [inspect.getsource(case_in_point), ">>> case_in_point()", str(case_in_point())]
+    [38, inspect.getsource(special_case), ">>> special_case()", str(special_case())],
+    [39, inspect.getsource(just_in_case), ">>> just_in_case()", str(just_in_case())],
+    [40, inspect.getsource(case_in_point), ">>> case_in_point()", str(case_in_point())]
     ]
-case_conundrum_qs = [[i + 1] + case_conundrum_qs[i] + [False] for i in range(len(case_conundrum_qs))]
 
 square_so_slow_qs = [
-    [inspect.getsource(square) + "\n" + inspect.getsource(so_slow), ">>> square(so_slow(5))", "infinite loop"]
+    [41, inspect.getsource(square) + "\n" + inspect.getsource(so_slow), ">>> square(so_slow(5))", "infinite loop"]
     ]
-square_so_slow_qs = [[i + 1] + square_so_slow_qs[i] + [False] for i in range(len(square_so_slow_qs))]
 
 
 # WWPD? QUESTIONS

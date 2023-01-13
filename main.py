@@ -2,7 +2,7 @@ from labs.lab01 import *
 from labs.lab01_wwpd import * 
 
 # WWPD? questions:  
-# un-comment one-by-one and complete question set
+# un-comment to complete question set
 
 # wwpd_booleans()
 # wwpd_control()
