@@ -214,7 +214,7 @@ booleans_qs = [
     [13, "", ">>> (1 + 1) and 1", str((1 + 1) and 1)], 
     [14, "", ">>> 1/0 or True", "error"], 
     [15, "", ">>> (True or False) and False", str((True or False) and False)]
-    ]
+]
 
 control_qs = [
     [16, "\n" + inspect.getsource(xk), ">>> xk(10, 10)", str(xk(10, 10))], 
@@ -232,7 +232,7 @@ control_qs = [
     [28, "\n" + inspect.getsource(short_loop_3), ">>> short_loop_3()", "-12"],
     [29, "", "", "-9"], 
     [30, "", "", "-6"]
-    ]
+]
 
 what_if_qs = [
     [31, inspect.getsource(ab), ">>> ab(10, 20)", "10"], 
@@ -242,17 +242,17 @@ what_if_qs = [
     [35, "", "", "29"],
     [36, "", ">>> bake(1, 'mashed potatoes')", "mashed potatoes"], 
     [37, "", "", "'mashed potatoes'"], 
-    ]
+]
 
 case_conundrum_qs = [
     [38, inspect.getsource(special_case), ">>> special_case()", str(special_case())],
     [39, inspect.getsource(just_in_case), ">>> just_in_case()", str(just_in_case())],
     [40, inspect.getsource(case_in_point), ">>> case_in_point()", str(case_in_point())]
-    ]
+]
 
 square_so_slow_qs = [
     [41, inspect.getsource(square) + "\n" + inspect.getsource(so_slow), ">>> square(so_slow(5))", "infinite loop"]
-    ]
+]
 
 
 # WWPD? QUESTIONS

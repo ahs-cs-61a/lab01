@@ -23,3 +23,18 @@ reminders:
 - for all tests: ```python3 -m pytest -s tests/test.py```
 - refer to lab00 setup description for help
 - don't forget to push to GitHub from Codespaces and submit turn-in in GradeScope
+
+test commands: 
+  
+- test_falling
+- test_sum_digits
+- test_double_eights
+- test_test_wears_jacket_with_if
+- test_is_prime
+- test_fizzbuzz
+- test_has_digit
+- test_unique_digits
+- test_a_plus_abs_b
+- test_two_of_three
+- test_largest_factor
+- test_hailstone
