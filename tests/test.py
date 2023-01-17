@@ -31,13 +31,6 @@ class bcolors:
     HIGH_MAGENTA = '\u001b[45m'
     HIGH_GREEN = '\u001b[42m'
     HIGH_YELLOW = '\u001b[43m'
-    HIGH_RED = '\u001b[41m'
-    HIGH_BLUE = '\u001b[44m'
-    MAGENTA = ' \u001b[35m'
-    GREEN = '\u001b[32m'
-    YELLOW = '\u001b[33m'
-    RED = '\u001b[31m'
-    BLUE = '\u001b[34m'
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
@@ -152,7 +145,10 @@ def test_hailstone():
 # CHECK WWPD? IS ALL COMPLETE
 
 def test_wwpd():
+    if len(st) != 41 or not all([i[4] for i in st]):
+        print(bcolors.HIGH_YELLOW + bcolors.BOLD + "ERROR: WWPD? incomplete." + bcolors.ENDC)
     assert len(st) == 41
+    assert all([i[4] for i in st])
 
 
 # AUTO-COMMIT WHEN ALL TESTS ARE RAN
