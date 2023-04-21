@@ -6,35 +6,36 @@ This assignment merges problems from disc01, lab01, and hw01 into one; refer to 
 - lab01: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab01/
 - hw01: https://inst.eecs.berkeley.edu/~cs61a/su22/hw/hw01/
   
-lecture slides: 
+## lecture slides: 
 - functions: https://docs.google.com/presentation/d/172UPPqyyABUpZTgpI0tmrcwkFeNx8KcV_5pKJtTnZm8/edit?usp=sharing
 - control: https://inst.eecs.berkeley.edu/~cs61a/su22/assets/slides/03-Control.pdf
   
-optional lecture recordings:
+## optional lecture recordings:
 - functions: https://www.youtube.com/playlist?list=PLx38hZJ5RLZdLilndcPoBVWg20S_VENyu
 - control: https://www.youtube.com/playlist?list=PLx38hZJ5RLZeMF2XEtgC7PxsbTi_wEMry
   
-reminders: 
+## reminders: 
   
-- to install pytest: ```python3 -m pip install pytest```
-- to import files and packages: ```python3 -m pip install -e .```
-- to run main.py: ```python3 main.py```
-- for individual tests: ```python3 -m pytest -s tests/test.py -k test_name_of_function```
-- for all tests: ```python3 -m pytest -s tests/test.py```
+- to install pytest: ```install_pytest```
+- to import files and packages: ```import_packs```
+- to run WWPD?: ```wwpd```
+- for individual tests: ```run_test <name of test>```
+- for all tests: ```test_all```
+- if you get an error "bash: command not found," run: ```source backround/.bashrc```
 - refer to lab00 setup description for help
-- don't forget to push to GitHub from Codespaces and submit turn-in in GradeScope
+- don't forget to push to GitHub from Codespaces and submit turn-in in on GradeScope
 
-test commands: 
+## test commands: 
   
-- test_falling
-- test_sum_digits
-- test_double_eights
-- test_test_wears_jacket_with_if
-- test_is_prime
-- test_fizzbuzz
-- test_has_digit
-- test_unique_digits
-- test_a_plus_abs_b
-- test_two_of_three
-- test_largest_factor
-- test_hailstone
+- falling
+- sum_digits
+- double_eights
+- wears_jacket_with_if
+- is_prime
+- fizzbuzz
+- has_digit
+- unique_digits
+- a_plus_abs_b
+- two_of_three
+- largest_factor
+- hailstone
