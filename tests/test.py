@@ -192,28 +192,6 @@ def test_wwpd():
     correct[0] += 1
 
 
-# AUTO-COMMIT WHEN ALL TESTS ARE RAN
-
-user = []
-
-def test_commit():
-    try:
-        # IF CHANGES ARE MADE, COMMIT TO GITHUB
-        repo = git.Repo("C:/Users/rober/OneDrive/Desktop/ahs-61a github/local_testing/lab01")
-        repo.git.add('--all')
-        repo.git.commit('-m', 'update lab')
-        origin = repo.remote(name='origin')
-        origin.push()
-        print_success("Changes successfully committed.")  
-    except git.GitCommandError: 
-        # IF CHANGES ARE NOT MADE, NO COMMITS TO GITHUB
-        print_message("Already up to date. No updates committed.")
-    except git.NoSuchPathError:
-        # IF GITHUB USERNAME IS NOT FOUND
-        print_error("Incorrect GitHub username; try again.")
-        raise git.NoSuchPathError("")
-    
-
 # PRINT PROGRESS BAR
 
 def test_progress_bar():
@@ -238,3 +216,25 @@ def test_progress_bar():
     print(bcolors.BOLD + ">" + bcolors.ENDC)
 
     time.sleep(2.5)  
+
+
+# AUTO-COMMIT WHEN ALL TESTS ARE RAN
+
+user = []
+
+def test_commit():
+    try:
+        # IF CHANGES ARE MADE, COMMIT TO GITHUB
+        repo = git.Repo("C:/Users/rober/OneDrive/Desktop/ahs-61a github/local_testing/lab01")
+        repo.git.add('--all')
+        repo.git.commit('-m', 'update lab')
+        origin = repo.remote(name='origin')
+        origin.push()
+        print_success("Changes successfully committed.")  
+    except git.GitCommandError: 
+        # IF CHANGES ARE NOT MADE, NO COMMITS TO GITHUB
+        print_message("Already up to date. No updates committed.")
+    except git.NoSuchPathError:
+        # IF GITHUB USERNAME IS NOT FOUND
+        print_error("Incorrect GitHub username; try again.")
+        raise git.NoSuchPathError("")
