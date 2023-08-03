@@ -1,1 +1,1 @@
-wwpd_storage = []
+wwpd_storage = [[1, '', '>>> True and 13', '13', True], [2, '', '>>> False or 0', '0', True]]

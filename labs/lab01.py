@@ -5,7 +5,7 @@ from operator import add, sub
 
 # disc01: https://inst.eecs.berkeley.edu/~cs61a/su22/disc/disc01/
 
-def wears_jacket_with_if(temp, raining):  # q1
+def wears_jacket_with_if(temp, raining): # q1
     """
     >>> wears_jacket_with_if(90, False)
     False
@@ -15,9 +15,10 @@ def wears_jacket_with_if(temp, raining):  # q1
     True
     """
     "*** YOUR CODE HERE ***"
+    return temp < 60 or raining
 
 
-def is_prime(n):  # q2
+def is_prime(n): # q2
     """
     >>> is_prime(10)
     False
@@ -27,9 +28,17 @@ def is_prime(n):  # q2
     False
     """
     "*** YOUR CODE HERE ***"
+    if n == 0 or n == 1:
+        return False
+    i = 2
+    while i < n:
+        if n % i == 0:
+            return False
+        i += 1
+    return True
 
 
-def fizzbuzz(n):  # q3
+def fizzbuzz(n): # q3
     """
     >>> result = fizzbuzz(16)
     1
@@ -52,16 +61,34 @@ def fizzbuzz(n):  # q3
     True
     """
     "*** YOUR CODE HERE ***"
+    i = 1
+    while i <= n:
+        if i % 15 == 0:
+            print("fizzbuzz")
+        elif i % 5 == 0:
+            print("buzz")
+        elif i % 3 == 0:
+            print("fizz")
+        else:
+            print(i)
+        i += 1
 
 
-def has_digit(n, k):  # q4
-    """
+def has_digit(n, k): # q4
+    """Returns whether K is a digit in N.
     >>> has_digit(10, 1)
     True
     >>> has_digit(12, 7)
     False
     """
     "*** YOUR CODE HERE ***"
+
+    "*** YOUR CODE HERE ***"
+    while n > 0:
+        if n % 10 == k:
+            return True
+        n //= 10
+    return False
 
 
 def unique_digits(n):  # q5, use has_digit
@@ -81,11 +108,18 @@ def unique_digits(n):  # q5, use has_digit
     2
     """
     "*** YOUR CODE HERE ***"
+    count = 0
+    while n > 0:
+        curr = n % 10
+        if not has_digit(n // 10, curr):
+            count += 1
+        n //= 10
+    return count
 
 
 # lab01: https://inst.eecs.berkeley.edu/~cs61a/su22/lab/lab01/
 
-def falling(n, k):  # q6
+def falling(n, k): # q6
     """Compute the falling factorial of n to depth k.
 
     >>> falling(6, 3)  # 6 * 5 * 4
@@ -98,9 +132,15 @@ def falling(n, k):  # q6
     1
     """
     "*** YOUR CODE HERE ***"
+    product = 1
+    while k > 0:
+        product *= n
+        n -= 1
+        k -= 1
+    return product
 
 
-def sum_digits(y):  # q7
+def sum_digits(y): # q7
     """Sum all the digits of y.
 
     >>> sum_digits(10) # 1 + 0 = 1
@@ -114,9 +154,14 @@ def sum_digits(y):  # q7
     6
     """
     "*** YOUR CODE HERE ***"
+    sum = 0
+    while y > 0:
+        sum += y % 10
+        y //= 10
+    return sum
 
 
-def double_eights(n):  # q8
+def double_eights(n): # q8
     """Return true if n has two eights in a row.
     >>> double_eights(8)
     False
@@ -132,11 +177,21 @@ def double_eights(n):  # q8
     False
     """
     "*** YOUR CODE HERE ***"
+    num_eights = 0
+    while n > 0:
+        if num_eights and n % 10 == 8:
+            return True
+        else:
+            num_eights = 0
+        if n % 10 == 8:
+            num_eights += 1
+        n //= 10
+    return False
 
 
 # hw01: https://inst.eecs.berkeley.edu/~cs61a/su22/hw/hw01/
 
-def a_plus_abs_b(a, b):  # q9
+def a_plus_abs_b(a, b): # q9
     """Return a+abs(b), but without calling abs.
 
     >>> a_plus_abs_b(2, 3)
@@ -149,13 +204,13 @@ def a_plus_abs_b(a, b):  # q9
     3
     """
     if b < 0:
-        f = None  # one liner, replace this None with your code (None is here to avoid compile errors)
+        f = sub
     else:
-        f = None  # one liner, replace this None with your code (None is here to avoid compile errors)
+        f = add
     return f(a, b)
 
 
-def two_of_three(i, j, k):  # q10
+def two_of_three(i, j, k): # q10
     """Return m*m + n*n, where m and n are the two smallest members of the
     positive numbers i, j, and k.
 
@@ -168,10 +223,12 @@ def two_of_three(i, j, k):  # q10
     >>> two_of_three(5, 5, 5)
     50
     """
-    return  # one liner
+    return min(i, j) ** 2 + min(j, k) ** 2 + min(i, k) ** 2 - min(i**2, j**2, k**2)
+    
+    # alternative: return min(i, j) ** 2 + min(max(i, j), k) ** 2
 
 
-def largest_factor(n):  # q11
+def largest_factor(n): # q11
     """Return the largest factor of n that is smaller than n.
 
     >>> largest_factor(15) # factors are 1, 3, 5
@@ -182,9 +239,16 @@ def largest_factor(n):  # q11
     1
     """
     "*** YOUR CODE HERE ***"
+    div_num = 1
+    largest_div = 1
+    while div_num < n:
+        if n % div_num == 0:
+            largest_div = div_num
+        div_num += 1
+    return largest_div
 
 
-def hailstone(n):  # q12
+def hailstone(n): # q12
     """Print the hailstone sequence starting at n and return its
     length.
 
@@ -204,3 +268,16 @@ def hailstone(n):  # q12
     1
     """
     "*** YOUR CODE HERE ***"
+    num_steps = 1
+    if n == 1:
+        print(1)
+    else:
+        print(n)
+        while not n == 1:
+            if n % 2 == 0:
+                n //= 2
+            else:
+                n = n * 3 + 1
+            print(n)
+            num_steps += 1
+    return num_steps
