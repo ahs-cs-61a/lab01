@@ -4,7 +4,7 @@
 # IMPORTS
 
 import labs.lab01 as lab, tests.wwpd_storage as s
-import sys, math, time, git
+import sys, git, math, time
 from io import StringIO 
 
 st = s.wwpd_storage 
