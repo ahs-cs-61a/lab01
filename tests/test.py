@@ -220,7 +220,7 @@ def test_progress_bar():
     num_correct, total = correct[0], 13
     percent_correct = num_correct / total * 100
 
-    print("\n\n" + bcolors.HIGH_MAGENTA + "PROGRESS BAR:" + bcolors.ENDC)
+    print("\n\n" + bcolors.HIGH_MAGENTA + bcolors.BOLD + "PROGRESS BAR:" + bcolors.ENDC)
 
     for i in range(0, 54):
         print(int(i * 10 / 5), end = '') if i % 5 == 0 else print(" ", end = '')
