@@ -199,8 +199,7 @@ user = []
 def test_commit():
     try:
         # IF CHANGES ARE MADE, COMMIT TO GITHUB
-        user.append(input("\n\nWhat is your GitHub username (exact match, case sensitive)?\n"))
-        repo = git.Repo("/workspaces/lab01-" + user[0])
+        repo = git.Repo("C:/Users/rober/OneDrive/Desktop/ahs-61a github/local_testing/lab01")
         repo.git.add('--all')
         repo.git.commit('-m', 'update lab')
         origin = repo.remote(name='origin')
