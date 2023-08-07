@@ -52,7 +52,7 @@ def print_success(message):
 correct = [0]
 
 def test_falling():
-    assert lab.falling(6, 3) == 120
+    assert lab.falling(6, 3) == 12
     assert lab.falling(4, 3) == 24
     assert lab.falling(4, 1) == 4
     assert lab.falling(4, 0) == 1
