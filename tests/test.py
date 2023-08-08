@@ -4,7 +4,11 @@
 # IMPORTS
 
 import labs.lab01 as lab, tests.wwpd_storage as s
+<<<<<<< HEAD
 import sys, git
+=======
+import sys, git, math, time
+>>>>>>> 1af9f061135cbe937eff38dae3270d1d55bf074c
 from io import StringIO 
 
 st = s.wwpd_storage 
@@ -192,6 +196,7 @@ def test_wwpd():
     correct[0] += 1
 
 
+<<<<<<< HEAD
 # AUTO-COMMIT WHEN ALL TESTS ARE RAN
 
 user = []
@@ -199,8 +204,59 @@ user = []
 def test_commit():
     try:
         # IF CHANGES ARE MADE, COMMIT TO GITHUB
-        user.append(input("\n\nWhat is your GitHub username (exact match, case sensitive)?\n"))
-        repo = git.Repo("/workspaces/lab01-" + user[0])
+        repo = git.Repo("/c/Users/rober/OneDrive/Desktop/ahs-cs-61a github/local_testing")
+        repo.git.add('--all')
+        repo.git.commit('-m', 'update lab')
+        origin = repo.remote(name='origin')
+        origin.push()
+        print_success("Changes successfully committed.")  
+    # except git.GitCommandError: 
+    #     # IF CHANGES ARE NOT MADE, NO COMMITS TO GITHUB
+    #     print_message("Already up to date. No updates committed.")
+    except git.NoSuchPathError:
+        # IF GITHUB USERNAME IS NOT FOUND
+        print_error("Incorrect GitHub username; try again.")
+<<<<<<< HEAD
+=======
+        raise git.NoSuchPathError("")
+    
+
+=======
+>>>>>>> f85ed86f9a4bc93b353b65a9f8e9e65842aa6684
+# PRINT PROGRESS BAR
+
+def test_progress_bar():
+    num_correct, total = correct[0], 13
+    percent_correct = num_correct / total * 100
+
+    print("\n\n" + bcolors.HIGH_MAGENTA + bcolors.BOLD + "PROGRESS BAR:" + bcolors.ENDC)
+
+    for i in range(0, 54):
+        print(int(i * 10 / 5), end = '') if i % 5 == 0 else print(" ", end = '')
+    print()
+
+    print(bcolors.BOLD + "<" + bcolors.ENDC, end = '')
+    i = 0
+    while i < 60:
+        time.sleep(0.02)
+        if i / 60 * 100 < percent_correct:
+            print(bcolors.GREEN + bcolors.BOLD + "■" + bcolors.ENDC, end = '', flush = True)
+        else:
+            print(bcolors.YELLOW + bcolors.BOLD + "■" + bcolors.ENDC, end = '', flush = True)
+        i += 1
+    print(bcolors.BOLD + ">" + bcolors.ENDC)
+
+    time.sleep(2.5)  
+
+
+# AUTO-COMMIT WHEN ALL TESTS ARE RAN
+
+user = []
+
+def test_commit():
+    try:
+        # IF CHANGES ARE MADE, COMMIT TO GITHUB
+        repo = git.Repo("C:/Users/rober/OneDrive/Desktop/ahs-61a github/local_testing/lab01")
         repo.git.add('--all')
         repo.git.commit('-m', 'update lab')
         origin = repo.remote(name='origin')
@@ -212,4 +268,5 @@ def test_commit():
     except git.NoSuchPathError:
         # IF GITHUB USERNAME IS NOT FOUND
         print_error("Incorrect GitHub username; try again.")
+>>>>>>> 1af9f061135cbe937eff38dae3270d1d55bf074c
         raise git.NoSuchPathError("")
