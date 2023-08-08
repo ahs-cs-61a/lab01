@@ -231,9 +231,9 @@ def test_commit():
         origin = repo.remote(name='origin')
         origin.push()
         print_success("Changes successfully committed.")  
-    # except git.GitCommandError: 
-    #     # IF CHANGES ARE NOT MADE, NO COMMITS TO GITHUB
-    #     print_message("Already up to date. No updates committed.")
+    except git.GitCommandError: 
+        # IF CHANGES ARE NOT MADE, NO COMMITS TO GITHUB
+        print_message("Already up to date. No updates committed.")
     except git.NoSuchPathError:
         # IF GITHUB USERNAME IS NOT FOUND
         print_error("Incorrect GitHub username; try again.")
