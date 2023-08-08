@@ -199,16 +199,15 @@ user = []
 def test_commit():
     try:
         # IF CHANGES ARE MADE, COMMIT TO GITHUB
-        user.append(input("\n\nWhat is your GitHub username (exact match, case sensitive)?\n"))
-        repo = git.Repo("/workspaces/lab01-" + user[0])
+        repo = git.Repo("/c/Users/rober/OneDrive/Desktop/ahs-cs-61a github/local_testing")
         repo.git.add('--all')
         repo.git.commit('-m', 'update lab')
         origin = repo.remote(name='origin')
         origin.push()
         print_success("Changes successfully committed.")  
-    except git.GitCommandError: 
-        # IF CHANGES ARE NOT MADE, NO COMMITS TO GITHUB
-        print_message("Already up to date. No updates committed.")
+    # except git.GitCommandError: 
+    #     # IF CHANGES ARE NOT MADE, NO COMMITS TO GITHUB
+    #     print_message("Already up to date. No updates committed.")
     except git.NoSuchPathError:
         # IF GITHUB USERNAME IS NOT FOUND
         print_error("Incorrect GitHub username; try again.")
