@@ -4,7 +4,7 @@
 # IMPORTS
 
 import labs.lab01 as lab, tests.wwpd_storage as s
-import sys, math, time, git
+import sys, git
 from io import StringIO 
 
 st = s.wwpd_storage 
@@ -69,28 +69,28 @@ def test_sum_digits():
 
 
 def test_double_eights():
-    assert lab.double_eights(8) == False
-    assert lab.double_eights(88) == True
-    assert lab.double_eights(2882) == True
-    assert lab.double_eights(880088) == True
-    assert lab.double_eights(12345) == False
-    assert lab.double_eights(80808080) == False
+    assert not lab.double_eights(8)
+    assert lab.double_eights(88)
+    assert lab.double_eights(2882)
+    assert lab.double_eights(880088)
+    assert not lab.double_eights(12345)
+    assert not lab.double_eights(80808080)
 
     correct[0] += 1
 
 
 def test_wears_jacket_with_if():
-    assert lab.wears_jacket_with_if(90, False) == False
-    assert lab.wears_jacket_with_if(40, False) == True
-    assert lab.wears_jacket_with_if(100, True) == True
+    assert not lab.wears_jacket_with_if(90, False)
+    assert lab.wears_jacket_with_if(40, False)
+    assert lab.wears_jacket_with_if(100, True)
 
     correct[0] += 1
 
 
 def test_is_prime():
-    assert lab.is_prime(10) == False
-    assert lab.is_prime(7) == True
-    assert lab.is_prime(1) == False
+    assert not lab.is_prime(10)
+    assert lab.is_prime(7)
+    assert not lab.is_prime(1)
 
     correct[0] += 1
 
@@ -112,9 +112,9 @@ def test_fizzbuzz():
 
 
 def test_has_digit():
-    assert lab.has_digit(10, 1) == True
-    assert lab.has_digit(12, 7) == False
-    assert lab.has_digit(4, 4) == True
+    assert lab.has_digit(10, 1)
+    assert not lab.has_digit(12, 7)
+    assert lab.has_digit(4, 4)
     
     correct[0] += 1
 
@@ -213,29 +213,3 @@ def test_commit():
         # IF GITHUB USERNAME IS NOT FOUND
         print_error("Incorrect GitHub username; try again.")
         raise git.NoSuchPathError("")
-    
-
-# PRINT PROGRESS BAR
-
-def test_progress_bar():
-    num_correct, total = correct[0], 13
-    percent_correct = num_correct / total * 100
-
-    print("\n\n" + bcolors.HIGH_MAGENTA + "PROGRESS BAR:" + bcolors.ENDC)
-
-    for i in range(0, 54):
-        print(int(i * 10 / 5), end = '') if i % 5 == 0 else print(" ", end = '')
-    print()
-
-    print(bcolors.BOLD + "<" + bcolors.ENDC, end = '')
-    i = 0
-    while i < 60:
-        time.sleep(0.02)
-        if i / 60 * 100 < percent_correct:
-            print(bcolors.GREEN + bcolors.BOLD + "■" + bcolors.ENDC, end = '', flush = True)
-        else:
-            print(bcolors.YELLOW + bcolors.BOLD + "■" + bcolors.ENDC, end = '', flush = True)
-        i += 1
-    print(bcolors.BOLD + ">" + bcolors.ENDC)
-
-    time.sleep(2.5)  
